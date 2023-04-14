@@ -5,8 +5,8 @@
     text-align: center;
 }
 
-main {
-    margin: 10px;
+.main-body {
+    margin: 2vb;
 }
 
 form {
@@ -21,4 +21,14 @@ form {
 #citySearchBtn {
     width: 100%;
     margin-bottom: 2vb;
+}
+
+.sidebar,
+.today-card-body {
+    text-align: left;
+}
+
+.today-card-body {
+    border: double;
+    padding: 2vb;
 }
