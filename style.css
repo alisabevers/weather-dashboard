@@ -48,5 +48,12 @@ form {
 }
 
 .forecast-card {
-    background-color: #E5EEFF;
+    background-color: #EEF4FF;
+}
+
+.searchHistory button {
+    width: 100%;
+    margin-top: 2vb;
+    background-color: #B8B8B8;
+    color: black;
 }
