@@ -1,6 +1,6 @@
 #main-header {
     color: white;
-    background-color: #4E18F5;
+    background-color: #003599;
     padding: 1vb;
     text-align: center;
 }
@@ -31,4 +31,22 @@ form {
 .today-card-body {
     border: double;
     padding: 2vb;
+}
+
+#today-weather-header {
+    font-weight: bold;
+}
+
+.forecast-main {
+    text-align: left;
+    padding: 1vb;
+}
+
+#forecast-header {
+    font-weight: bold;
+    padding-bottom: 1vb;
+}
+
+.forecast-card {
+    background-color: #E5EEFF;
 }
