@@ -31,6 +31,10 @@ citySearchBtn.addEventListener('click', function(event) {
     .then(function (response) {
         return response.json()
     .then(function (data) {
+        if (response.status !==200) {
+            searchHistory.removeChild(newSearchHistory);
+            return;
+        }
         console.log(data);
         todayWeatherHeader.textContent = data.name + " " + date.format('(M/D/YYYY)');
         icon = data.weather[0].icon;
@@ -104,7 +108,6 @@ citySearchBtn.addEventListener('click', function(event) {
                 var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
                 icon5.setAttribute("src", iconURL);
 
-
                 forecastTemp1.textContent = "Temp: " + data.list[0].main.temp + "°";
                 forecastTemp2.textContent = "Temp: " + data.list[1].main.temp + "°";
                 forecastTemp3.textContent = "Temp: " + data.list[2].main.temp + "°";
@@ -127,3 +130,6 @@ citySearchBtn.addEventListener('click', function(event) {
         });
     });
 });
+
+
+// enables the search history buttons to call the weather
