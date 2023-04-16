@@ -19,7 +19,7 @@ citySearchBtn.addEventListener('click', function(event) {
 
 
     // fetches the selected city's current weather details and displays in the main container, at the top of the page
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey + "&units=imperial";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey + "&units=imperial";
     var date = dayjs();
     var todayWeatherHeader = document.querySelector("#today-weather-header");
     var iconMain = document.querySelector("#iconToday")
@@ -38,7 +38,7 @@ citySearchBtn.addEventListener('click', function(event) {
         console.log(data);
         todayWeatherHeader.textContent = data.name + " " + date.format('(M/D/YYYY)');
         icon = data.weather[0].icon;
-            var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+            var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
             iconMain.setAttribute("src", iconURL);
         todayTemp.textContent = "Temp: " + data.main.temp + "°";
         todayWind.textContent = "Wind: " + data.wind.speed + " MPH";
@@ -46,7 +46,7 @@ citySearchBtn.addEventListener('click', function(event) {
         
 
             // fetches the 5-day forecast and displays into to the cards
-            var forecastURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&appid=" + APIKey + "&units=imperial";
+            var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&appid=" + APIKey + "&units=imperial";
 
             var forecastDate1 = document.querySelector("#forecastDate1");
             var forecastDate2 = document.querySelector("#forecastDate2");
@@ -89,23 +89,23 @@ citySearchBtn.addEventListener('click', function(event) {
                 forecastDate5.textContent = date.add(5, 'day').format("M/D/YYYY");
 
                 icon = data.list[0].weather[0].icon;
-                var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+                var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
                 icon1.setAttribute("src", iconURL);
 
                 icon = data.list[1].weather[0].icon;
-                var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+                var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
                 icon2.setAttribute("src", iconURL);
 
                 icon = data.list[2].weather[0].icon;
-                var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+                var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
                 icon3.setAttribute("src", iconURL);
 
                 icon = data.list[3].weather[0].icon;
-                var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+                var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
                 icon4.setAttribute("src", iconURL);
 
                 icon = data.list[4].weather[0].icon; 
-                var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+                var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
                 icon5.setAttribute("src", iconURL);
 
                 forecastTemp1.textContent = "Temp: " + data.list[0].main.temp + "°";
