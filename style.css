@@ -35,6 +35,7 @@ form {
 
 #today-weather-header {
     font-weight: bold;
+    margin-bottom: 3vb;
 }
 
 .forecast-main {
