@@ -58,3 +58,11 @@ form {
     background-color: #B8B8B8;
     color: black;
 }
+
+.searchHistory button:hover {
+    background-color: #6A6A6A;
+}
+
+h5 {
+    font-weight: bold;
+}

@@ -1,101 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- insert LINK for google fonts later -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="style.css" />
-    <title>Weather Dashboard</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- insert LINK for google fonts later -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="style.css" />
+  <title>Weather Dashboard</title>
 </head>
 
 <body>
-    <h1 id="main-header">Weather Dashboard</h1>
-    <main class="main-body">
-        <div class="row container text-center">
-            <div class="sidebar col-3">
-                <form id="sidebar-search">
-                <div class="mb-3">
-                    <label class="form-label" id="searchCityHeader">Search for a City:</label>
-                    <input class="form-control" placeholder="City" id="searchCity">
+  <h1 id="main-header">Weather Dashboard</h1>
+  <main class="main-body">
+    <div class="row container text-center">
+      <div class="sidebar col-3">
+        <form id="sidebar-search">
+          <div class="mb-3">
+            <label class="form-label" id="searchCityHeader">Search for a City:</label>
+            <input class="form-control" placeholder="City" id="searchCity">
+          </div>
+          <button type="submit" class="btn btn-primary" id="citySearchBtn">Search</button>
+        </form>
+        <div class="searchHistory"></div>
+      </div>
+      <div class="today-card col-9">
+        <div class="today-card-body" id="todayWeatherCard">
+          <h2 id="today-weather-header"></h2>
+          <img id="iconToday" src="" alt="weather-icon0">
+          <p id="todayTemp"></p>
+          <p id="todayWind"></p>
+          <p id="todayHumidity"></p>
+        </div>
+        <div class="forecast-main container">
+          <h3 id="forecast-header">5-Day Forecast:</h3>
+          <div class="row row-cols-5">
+            <div class="col-2.5">
+              <div class="forecast-card card">
+                <div class="card-body">
+                  <h5 id="forecastDate1"></h5>
+                  <img id="icon1" src="" alt="weather-icon1">
+                  <p id="forecastTemp1"></p>
+                  <p id="forecastWind1"></p>
+                  <p id="forecastHumidity1"></p>
                 </div>
-                <button type="submit" class="btn btn-primary" id="citySearchBtn">Search</button>
-                </form>
-                <div class="searchHistory"></div>
+              </div>
             </div>
-            <div class="today-card col-9">
-                <div class="today-card-body" id="todayWeatherCard">
-                    <h2 id="today-weather-header"></h2>
-                    <p id="todayTemp"></p>
-                    <p id="todayWind"></p>
-                    <p id="todayHumidity"></p>
+            <div class="col-2.5">
+              <div class="forecast-card card">
+                <div class="card-body">
+                  <h5 id="forecastDate2"></h5>
+                  <img id="icon2" src="" alt="weather-icon2">
+                  <p id="forecastTemp2"></p>
+                  <p id="forecastWind2"></p>
+                  <p id="forecastHumidity2"></p>
                 </div>
-                <div class="forecast-main container">
-                    <h3 id="forecast-header">5-Day Forecast:</h3>
-                    <div class="row row-cols-5">
-                        <div class="col-2.5">
-                          <div class="forecast-card card">
-                            <div class="card-body">
-                              <h5 class="card-title">Date</h5>
-                              <p id="forecastTemp1"></p>
-                              <p id="forecastWind1"></p>
-                              <p id="forecastHumidity1"></p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-2.5">
-                          <div class="forecast-card card">
-                            <div class="card-body">
-                              <h5 class="card-title">Date</h5>
-                              <p id="forecastTemp2"></p>
-                              <p id="forecastWind2"></p>
-                              <p id="forecastHumidity2"></p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-2.5">
-                          <div class="forecast-card card">
-                            <div class="card-body">
-                              <h5 class="card-title">Date</h5>
-                              <p id="forecastTemp3"></p>
-                              <p id="forecastWind3"></p>
-                              <p id="forecastHumidity3"></p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-2.5">
-                          <div class="forecast-card card">
-                            <div class="card-body">
-                              <h5 class="card-title">Date</h5>
-                              <p id="forecastTemp4"></p>
-                              <p id="forecastWind4"></p>
-                              <p id="forecastHumidity4"></p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-2.5">
-                          <div class="forecast-card card">
-                            <div class="card-body">
-                              <h5 class="card-title">Date</h5>
-                              <p id="forecastTemp5"></p>
-                              <p id="forecastWind5"></p>
-                              <p id="forecastHumidity5"></p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                </div>
+              </div>
             </div>
-        </div>  
-    </main>
-    
-    <script
-      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./script.js"></script>
+            <div class="col-2.5">
+              <div class="forecast-card card">
+                <div class="card-body">
+                  <h5 id="forecastDate3"></h5>
+                  <img id="icon3" src="" alt="weather-icon3">
+                  <p id="forecastTemp3"></p>
+                  <p id="forecastWind3"></p>
+                  <p id="forecastHumidity3"></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-2.5">
+              <div class="forecast-card card">
+                <div class="card-body">
+                  <h5 id="forecastDate4"></h5>
+                  <img id="icon4" src="" alt="weather-icon4">
+                  <p id="forecastTemp4"></p>
+                  <p id="forecastWind4"></p>
+                  <p id="forecastHumidity4"></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-2.5">
+              <div class="forecast-card card">
+                <div class="card-body">
+                  <h5 id="forecastDate5"></h5>
+                  <img id="icon5" src="" alt="weather-icon5">
+                  <p id="forecastTemp5"></p>
+                  <p id="forecastWind5"></p>
+                  <p id="forecastHumidity5"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./script.js"></script>
 </body>
+
 </html>

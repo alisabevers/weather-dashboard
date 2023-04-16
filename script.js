@@ -22,6 +22,7 @@ citySearchBtn.addEventListener('click', function(event) {
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey + "&units=imperial";
     var date = dayjs();
     var todayWeatherHeader = document.querySelector("#today-weather-header");
+    var iconMain = document.querySelector("#iconToday")
     var todayTemp = document.querySelector("#todayTemp");
     var todayWind = document.querySelector("#todayWind");
     var todayHumidity = document.querySelector("#todayHumidity");
@@ -30,8 +31,11 @@ citySearchBtn.addEventListener('click', function(event) {
     .then(function (response) {
         return response.json()
     .then(function (data) {
-        // console.log(data);
+        console.log(data);
         todayWeatherHeader.textContent = data.name + " " + date.format('(M/D/YYYY)');
+        icon = data.weather[0].icon;
+            var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+            iconMain.setAttribute("src", iconURL);
         todayTemp.textContent = "Temp: " + data.main.temp + "°";
         todayWind.textContent = "Wind: " + data.wind.speed + " MPH";
         todayHumidity.textContent = "Humidity: " + data.main.humidity + "%";
@@ -39,6 +43,19 @@ citySearchBtn.addEventListener('click', function(event) {
 
             // fetches the 5-day forecast and displays into to the cards
             var forecastURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&appid=" + APIKey + "&units=imperial";
+
+            var forecastDate1 = document.querySelector("#forecastDate1");
+            var forecastDate2 = document.querySelector("#forecastDate2");
+            var forecastDate3 = document.querySelector("#forecastDate3");
+            var forecastDate4 = document.querySelector("#forecastDate4");
+            var forecastDate5 = document.querySelector("#forecastDate5");
+
+            var icon1 = document.querySelector("#icon1");
+            var icon2 = document.querySelector("#icon2");
+            var icon3 = document.querySelector("#icon3");
+            var icon4 = document.querySelector("#icon4");
+            var icon5 = document.querySelector("#icon5");
+
             var forecastTemp1 = document.querySelector("#forecastTemp1");
             var forecastTemp2 = document.querySelector("#forecastTemp2");
             var forecastTemp3 = document.querySelector("#forecastTemp3");
@@ -61,7 +78,33 @@ citySearchBtn.addEventListener('click', function(event) {
             .then(function (response) {
                 return response.json()
             .then(function (data) {
-                console.log(data);
+                forecastDate1.textContent = date.add(1, 'day').format("M/D/YYYY");
+                forecastDate2.textContent = date.add(2, 'day').format("M/D/YYYY");
+                forecastDate3.textContent = date.add(3, 'day').format("M/D/YYYY");
+                forecastDate4.textContent = date.add(4, 'day').format("M/D/YYYY");
+                forecastDate5.textContent = date.add(5, 'day').format("M/D/YYYY");
+
+                icon = data.list[0].weather[0].icon;
+                var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+                icon1.setAttribute("src", iconURL);
+
+                icon = data.list[1].weather[0].icon;
+                var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+                icon2.setAttribute("src", iconURL);
+
+                icon = data.list[2].weather[0].icon;
+                var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+                icon3.setAttribute("src", iconURL);
+
+                icon = data.list[3].weather[0].icon;
+                var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+                icon4.setAttribute("src", iconURL);
+
+                icon = data.list[4].weather[0].icon; 
+                var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+                icon5.setAttribute("src", iconURL);
+
+
                 forecastTemp1.textContent = "Temp: " + data.list[0].main.temp + "°";
                 forecastTemp2.textContent = "Temp: " + data.list[1].main.temp + "°";
                 forecastTemp3.textContent = "Temp: " + data.list[2].main.temp + "°";
